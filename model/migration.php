@@ -5,7 +5,7 @@ try {
     //Подключаемся к базе данных
     $connect=new PDO("sqlite:$db");
     //Создаем SQL-запрос на создание таблицы чисел рулетки
-    $sql="CREATE TABLE Roulette (
+    $sql="CREATE TABLE IF NOT EXISTS Roulette (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         sector INTEGER NOT NULL,
         half INTEGER,
@@ -58,8 +58,8 @@ try {
         (3, 'odd', 'red'),
         (26, 'even', 'black')
     ";
-    $affectedRowsNumber = $connect->exec($sql);
-    echo "В таблицу Roulette добавлено строк: $affectedRowsNumber.<br/>";
+    $countString = $connect->exec($sql);
+    echo "В таблицу Roulette добавлено строк: $countString.<br/>";
     $connect = null;
 }
 catch (PDOException $e) {

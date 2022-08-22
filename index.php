@@ -1,53 +1,67 @@
 <?php
+    /*
+        КЛАССЫ:
+        - Модель
+        - Представление
+        - Контроль
+        1. Связь с БД
+        2. Миграция(заполнение) БД (для админа)
+        3. Игра (со списком игроков)
+        4. Игрок
+        5. Админ?
+        6. Рулетка?
+    */
+
     //База данных
-    $db='data/casino.sqlite';
+    $db='model/casino.sqlite';
     //include_once('data/migration.php');
+
+    include_once('control/function.php');
+
+    include_once('view/header.php');
 ?>
 
-<? include_once('header.php'); ?>
+<main class='row'>
+    <section id='left' class='col'>
+        <article id='roulette'>
+            <p>Рулетка</p>
+            <form method="post">
+                <input type="submit" name="bet" value="Go!" /><br/><br/>
+                <input type="submit" name="reset" value="reset" /><br/>
+            </form>
+            <div id='sector'>
+                <p>Сектор</p>
+                <? echo $sector ?>
+            </div>
+        </article>
+        <article id='statistics'>
+            <p>Статистика</p>
+            <? statistics($db); ?>
+        </article>
+    </section>
+    <section id='right' class='col'>
+        <div id='room' class='row'>
+            <article class='col'>
+                <p>Стол № 1</p>
+                <div id='players' class='row'>
+                    <article class='player'>игрок 1</article>
+                    <article class='player'>игрок 2</article>
+                    <article class='player'>игрок 3</article>
+                    <article class='player'>игрок 4</article>
+                    <article class='player'>игрок 5</article>
+                </div>
+            </article>
+            <article id='profile'>
+                <p>Профиль</p>
+            </article>
+        </div>
+        <article id='betting' class='row'>
+            <p>Ставки</p>
+        </article>
+        <article id='bank' class='row'>
+            <p>Банк</p>
+        </article>
+    </section>
+</main>
 
-<form method="post">
-    <input type="submit" name="bet" value="Go!" /><br/><br/>
-    <input type="submit" name="reset" value="reset" /><br/>
-</form>
-
-<?php
-    //Выводим все статистику с БД
-    function statistics($db) {
-        $connect = new PDO("sqlite:$db");
-        $sql = "SELECT `sector`, `stat` FROM `Roulette`";
-        $result = $connect->query($sql);
-        $arr = [];
-        foreach($result as $row)
-            $arr[$row['sector']] = $row['stat'];
-        ksort($arr);
-        echo '<div class="stat">';
-        foreach($arr as $key => $elem)
-            echo '<div>', $key, "\n", $elem, '</div>';
-        echo '</div>';
-        $connect = null;
-    }
-
-    //Добавляем рандом в статистику БД
-    $sector = 'начните игру';
-    if(array_key_exists('bet', $_POST)) {
-        $sector=rand(0, 36);
-        $connect = new PDO("sqlite:$db");
-        $sql = "UPDATE `Roulette` SET `stat`=`stat`+1 WHERE `sector` = $sector";
-        $connect->exec($sql);
-        $connect = null;
-    }
-    echo "<div>$sector</div>";
-
-    //Обнуление статистики
-    if(array_key_exists('reset', $_POST)) {
-        $connect = new PDO("sqlite:$db");
-        $sql = "UPDATE `Roulette` SET `stat` = 0";
-        $connect->exec($sql);
-        $connect = null;
-    }
-
-    statistics($db);
-?>
-
-<? include_once('footer.php'); ?>
+<? include_once('view/footer.php'); ?>

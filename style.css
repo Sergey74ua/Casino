@@ -8,15 +8,81 @@ html, body {
 
 body {
     background-color: darkgreen;
+    border: 1px solid red;
 }
 
 form, div {
-    margin: 16px;
+    margin: 4px;
     color: lime;
     text-align: center;
 }
 
-.stat {
+.col {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+.player {
+    border: 2px solid lime;
+    border-radius: 10px;
+}
+
+#left {
+    width: 70%;
     border: 1px solid yellow;
+}
+
+#right {
+    width: 30%;
+    border: 1px solid lightblue;
+}
+
+#roulette {
+    border: 1px solid red;
+}
+
+#statistics {
+    border: 1px solid black;
+}
+
+#room {
+    height: 25%;
+    border: 1px solid lightcoral;
+}
+
+#players {
+    width: 80%;
+    border: 1px solid navy;
+}
+
+#profile {
+    width: 20%;
+    border: 1px solid white;
+}
+
+#betting {
+    border: 1px solid lime;
+}
+
+#bank {
+    height: 25%;
+    border: 1px solid blue;
+}
+
+#sector {
+    height: 50%;
+    border: 1px solid white;
 }
