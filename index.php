@@ -11,10 +11,18 @@
         5. Админ?
         6. Рулетка?
     */
+    //Активайия сессий
+    session_start();
 
     //База данных
     $db='model/casino.sqlite';
-    //include_once('data/migration.php');
+    
+    include_once('model/admin.php');
+    $dateBase=new DateBase($db);
+    /*
+    $dateBase->addUser('Sergey', '123456', 'p1.jpg', 1000);
+    $dateBase->addUser('Вася');
+    */
 
     include_once('control/function.php');
 
@@ -27,7 +35,8 @@
             <p>Рулетка</p>
             <form method="post">
                 <input type="submit" name="bet" value="Go!" /><br/><br/>
-                <input type="submit" name="reset" value="reset" /><br/>
+                <input type="submit" name="reset" value="reset" /><br/><br/>
+                <input type="submit" name="recovery" value="recovery" /><br/>
             </form>
             <div id='sector'>
                 <p>Сектор</p>
