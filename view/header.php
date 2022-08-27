@@ -1,3 +1,5 @@
+<?php #Casino ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="view/style.css">
+    <link rel="stylesheet" href="view/css/normalize.css">
+	<link rel="stylesheet" href="view/css/style.php">
 </head>
 <body>
 <header>

@@ -1,18 +1,26 @@
+<?php #Casino
+
+header('Content-type: text/css');
+
+$bgColor = 'darkgreen';
+
+?>
+
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 body {
-    background-color: darkgreen;
+    background-color: <?=$bgColor;?>;
     border: 1px solid red;
 }
 
 form, div {
-    margin: 4px;
+    margin: 1px;
     color: lime;
     text-align: center;
 }
@@ -36,25 +44,29 @@ form, div {
 }
 
 .player {
+    width: 18%;
     border: 2px solid lime;
     border-radius: 10px;
 }
 
 #left {
-    width: 70%;
+    width: 45%;
     border: 1px solid yellow;
 }
 
 #right {
-    width: 30%;
+    width: 55%;
     border: 1px solid lightblue;
 }
 
-#roulette {
+#table {
+    position: relative;
+    height: 50%;  /* 75%  */
     border: 1px solid red;
 }
 
-#statistics {
+#stat {
+    height: 25%;
     border: 1px solid black;
 }
 
@@ -64,7 +76,7 @@ form, div {
 }
 
 #players {
-    width: 80%;
+    width: 100%;
     border: 1px solid navy;
 }
 
@@ -83,6 +95,9 @@ form, div {
 }
 
 #sector {
-    height: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(0deg);
     border: 1px solid white;
 }
