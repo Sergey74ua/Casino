@@ -10,13 +10,11 @@ class Migration extends Model {
         parent::__construct();
         //удаление файла БД (не наследуется путь с model)
         $this->makeRoulette();
-        $this->fillRoulette();
-        $this->makeUser();
-        $this->addAdmin('admin', 'admin');
         $this->makeGame();
+        $this->makeUser();
     }
 
-    //Таблица рулетки
+    //Таблица рулетки с данными
     private function makeRoulette() {
         $this->sql = "
             CREATE TABLE IF NOT EXISTS `Roulette` (
@@ -31,10 +29,6 @@ class Migration extends Model {
             );
         ";
         $this->inDB($this->sql);
-    }
-
-    //Заполнение таблицы рулетки
-    private function fillRoulette() {
         $this->sql = "
             INSERT INTO `Roulette` (sector, parity, color) VALUES 
                 (0, 'zero', 'green'), 
@@ -78,6 +72,18 @@ class Migration extends Model {
         $this->inDB($this->sql);
     }
 
+    //Таблица игр
+    private function makeGame() {
+        $this->sql = "
+            CREATE TABLE IF NOT EXISTS `Game` (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                creator TEXT DEFAULT 'anonym',
+                sector INTEGER
+            );
+        ";
+        $this->inDB($this->sql);
+    }
+
     //Таблица игроков
     private function makeUser() {
         $this->sql = "
@@ -96,27 +102,11 @@ class Migration extends Model {
             );
         ";
         $this->inDB($this->sql);
-    }
-
-    //Добавляем администратора
-    private function addAdmin($name='admin', $pass='admin') {
         $this->sql = "
             INSERT INTO `User` (id, name, status, pass) VALUES 
-                (1, '$name', 'admin', '$pass')
+                (1, 'admin', 'admin', 'admin')
         ";
         $this->inDB($this->sql);
     }
 
-    //Таблица игр
-    private function makeGame() {
-        $this->sql = "
-            CREATE TABLE IF NOT EXISTS `Game` (
-                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                creator TEXT DEFAULT 'anonym',
-                sector INTEGER
-            );
-        ";
-        $this->inDB($this->sql);
-    }
-    
 }

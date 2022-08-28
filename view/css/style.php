@@ -2,9 +2,13 @@
 
 header('Content-type: text/css');
 
-$bgColor = 'darkgreen';
+$bgColor = 'green';
 
 ?>
+
+:root {
+  --fontColor: yellow;
+}
 
 html, body {
     width: 100%;
@@ -16,6 +20,7 @@ html, body {
 
 body {
     background-color: <?=$bgColor;?>;
+    color: var(--fontColor);
     border: 1px solid red;
 }
 
@@ -98,6 +103,6 @@ form, div {
     position: absolute;
     top: 0;
     right: 0;
-    transform: rotate(0deg);
+    /*transform: rotate(0deg);*/
     border: 1px solid white;
 }
