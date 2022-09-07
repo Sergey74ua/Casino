@@ -7,6 +7,7 @@
             <p>Статистика</p>
             <?php
                 echo "<div class='row' style='border: 1px solid lightgreen;'>";
+                $roulette = new Roulette();
                 $stat = $roulette->getStat();
                 foreach($stat as $key => $elem) {
                     echo '<div class="col" style="border: 1px solid grey;">';

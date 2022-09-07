@@ -9,6 +9,9 @@
     </form>
     <div id='sector'>
         <p>Сектор</p>
-        <? echo $game->getSector() ?>
+        <?php
+            $game = new Game();
+            echo $game->getSector();
+        ?>
     </div>
 </article>
