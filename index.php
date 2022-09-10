@@ -1,6 +1,6 @@
 <?php #Casino
 
-    setcookie('name', 'Sergey', time()+10); //пробный тест
+    setcookie('name', 'Sergey', time()+24*60*60); //пробный тест
     session_start();
 
     //Model
