@@ -8,4 +8,7 @@
         else
             echo 'неизвестный';
     ?>
+    <form method="post">
+        <input type="submit" name="recovery" value="recovery" /><br/>
+    </form>
 </article>

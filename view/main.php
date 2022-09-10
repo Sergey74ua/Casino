@@ -5,6 +5,9 @@
         <?php include_once('view/php/table.php'); ?>
         <article id='stat'>
             <p>Статистика</p>
+            <form method="post">
+                <input type="submit" name="reset" value="reset" /><br/><br/>
+            </form>
             <?php
                 echo "<div class='row' style='border: 1px solid lightgreen;'>";
                 $roulette = new Roulette();
