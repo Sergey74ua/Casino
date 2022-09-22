@@ -9,7 +9,7 @@
     <title>Casino</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="view/css/normalize.css">
-	<link rel="stylesheet" href="view/css/style.php">
+	<link rel="stylesheet" href="view/css/style.css">
 </head>
 <body>
 <header>

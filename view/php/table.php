@@ -7,7 +7,7 @@
     </form>
     <div id='sector'>
         <p>Сектор</p>
-        <?php
+        <?php //ВРЕМЕННО
             $game = new Game();
             echo $game->getSector();
         ?>

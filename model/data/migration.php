@@ -82,6 +82,11 @@ class Migration extends Model {
             );
         ";
         $this->inDB($this->sql);
+        $this->sql = "
+            INSERT INTO `Game` (id, creator) VALUES 
+                (1, 'admin')
+        ";
+        $this->inDB($this->sql);
     }
 
     //Таблица игроков

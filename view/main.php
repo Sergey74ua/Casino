@@ -10,11 +10,7 @@
             <?php include_once('view/php/players.php'); ?>
             <?php include_once('view/php/profile.php'); ?>
         </div>
-        <article id='betting' class='row'>
-            <p>Ставки</p>
-        </article>
-        <article id='bank' class='row'>
-            <p>Банк</p>
-        </article>
+        <?php include_once('view/php/betting.php'); ?>
+        <?php include_once('view/php/bank.php'); ?>
     </section>
 </main>

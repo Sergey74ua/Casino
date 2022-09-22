@@ -1,14 +1,4 @@
-<?php #Casino
-
-header('Content-type: text/css');
-
-$bgColor = 'green';
-
-?>
-
-:root {
-  --fontColor: yellow;
-}
+/*Casino*/
 
 html, body {
     width: 100%;
@@ -19,8 +9,8 @@ html, body {
 }
 
 body {
-    background-color: <?=$bgColor;?>;
-    color: var(--fontColor);
+    background-color: darkgreen;
+    color: yellow;
     border: 1px solid red;
 }
 
@@ -87,6 +77,7 @@ form, div {
 
 #profile {
     width: 20%;
+    padding: .5em;
     border: 1px solid white;
 }
 
